@@ -10,6 +10,8 @@ const appSettings = {
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const datainDB = ref(database, 'shopping-cart-data');
+
+
 onValue(datainDB, function (data) {
     clearText();
     clearList();
