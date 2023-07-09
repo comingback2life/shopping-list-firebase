@@ -3,7 +3,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebas
 import { getDatabase, ref, push, onValue, remove } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js';
 
 const appSettings = {
-    databaseURL: "FireBaseDBURLHere",
+    databaseURL: "fireBaseDBURL",
 };
 
 
@@ -48,7 +48,7 @@ const addToList = (textBoxValue) => {
     list.append(newElement);
     newElement.addEventListener('click', () => {
         const exactURLLocation = ref(database, `shopping-cart-data/${key}`);
-        if (exactURLLocation) {
+        if (confirm('Are you sure you want to delete?') === true && exactURLLocation) {
             remove(exactURLLocation);
         }
 
